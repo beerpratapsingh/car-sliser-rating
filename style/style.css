@@ -1,0 +1,269 @@
+*{margin: 0; padding: 0; border: none}
+
+body {
+  font-size: 16px;
+  font-family: Verdana,sans-serif;
+  line-height: 1.5;
+}
+ol, ul { 
+  list-style: none;
+}
+img{
+  max-width: 100%;
+}
+a{
+  text-decoration: none;
+  color: #0081cb;
+}
+
+/* Slide css */
+.slide{
+  display: none;
+}
+.slide.active{
+  display: block
+}
+.inner-content{
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+.slider-sec{
+  text-align: center;
+}
+
+#slider{
+  max-height: 385px;
+  overflow: hidden;
+}
+
+.slider-dot{
+  margin: 20px 0;
+}
+.slider-sec, .rating-sec{
+  width: 50%;
+  margin: 0 auto;
+}
+.dot{
+  width: 20px; 
+  height: 20px; 
+  display: inline-block;
+  border: 4px solid #b1b1b1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot:hover:nth-child(1), .dot.active:nth-child(1){
+  background: silver;
+}
+.dot:hover:nth-child(2), .dot.active:nth-child(2){
+  background: blue;
+}
+.dot:hover:nth-child(3), .dot.active:nth-child(3){
+  background: grey;
+}
+.dot:hover:nth-child(4), .dot.active:nth-child(4){
+  background: red;
+}
+.dot:hover:nth-child(5), .dot.active:nth-child(5){
+  background: blue;
+}
+
+/* Rating css */
+.rating-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.rating-bars{
+  width: 70%;
+}
+.rating-bars .link{
+  float: right;
+  font-weight: bold;
+  margin: 10px 20px 0 0;
+}
+
+.rating-bar {  
+  position: relative;
+  margin-top: 10px;
+}
+
+/* The bar container */
+.bar-container {
+  width: 90%;
+  background-color: #f5f0be;
+  text-align: center;
+  color: white;
+  border-radius: 10px;  
+}
+.rating-count{
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+
+
+/* Individual bars */
+.bar-1, .bar-2, .bar-3, .bar-4, .bar-5{
+  height: 16px;
+  background-color: #fdea2d;
+  border-radius: 10px;
+  width:0%;
+  overflow:hidden;
+  -webkit-transition: width .4s ease-in-out;
+  -moz-transition: width .4s ease-in-out;  
+  transition: width .4s ease-in-out;
+}
+.bar-1.bar-animation {
+  width: 15%;  
+}
+.bar-2.bar-animation {
+  width: 4%;  
+}
+.bar-3.bar-animation {
+  width: 10%;  
+}
+.bar-4.bar-animation {
+  width: 30%;  
+}
+.bar-5.bar-animation {
+  width: 60%;  
+}
+
+/* Rating Clocks */
+.rating-clock {
+  width: 200px;
+  margin: 0 auto;
+}
+.clock {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+.overall-rating{
+  text-align: center;
+}
+.overall-rating p{
+  color: #b1b1b1;
+  text-transform: uppercase;
+}
+.overall-count{
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 0 5px;
+}
+
+.clock-border {
+  width: 180px;
+  height: 200px;
+  border: solid 10px #fdea2d;
+  border-radius: 50%;
+  background: #f5f0be;
+  position: relative;
+}
+
+.needle {
+  width: 5px;
+  height: 90px;  
+  background: #333;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  display: inline-block;
+  position: absolute;
+  left: 90px;
+  top: 0;
+  transform-origin: bottom;
+}
+
+
+.percent-20 {
+  -webkit-animation: keyframes-66 2s;
+  animation: keyframes-66 2s;
+  transform: rotate(21deg);
+}
+
+@keyframes keyframes-66 {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(21deg);
+  }
+}
+
+/* Car Listing css */
+.rating-content + .car-list {
+  margin-top: 25px;
+}
+.car-list .lists{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.list{
+  max-width: 120px;
+  border: 1px solid #b1b1b1;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: 12px;
+}
+.car-ave-rating {
+  color: #fff;
+  background: #0081cb;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 5px;
+}
+.lists .list + .list{
+  margin-left: 12px;
+}
+
+@media (max-width: 1023px){
+  .inner-content{
+    flex-direction: column;
+  }
+  .slider-sec, .rating-sec {
+    width: 100%;
+  }
+  .slider-sec + .rating-sec {  
+    padding-top: 30px;
+  }
+  .bar-container{
+    width: 85%;
+  }
+}
+@media (max-width: 767px){  
+  #slider {
+    max-height: 296px;
+  }
+  .dot {
+    width: 15px;
+    height: 15px;   
+    border: 3px solid #b1b1b1;   
+  }
+  .rating-content{
+    flex-direction: column;    
+  }
+  .rating-bars{
+    width: 100%;    
+    padding-bottom: 30px;
+  }
+}
+
+
